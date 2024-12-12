@@ -1,0 +1,117 @@
+{{> Header }}
+
+<div class="change">
+	<div >
+		<img id="homeViewImages" src="../../../images/rotation/image1.png" style="width: 100%;">
+	</div>
+
+	<div class="container">
+		
+        <div class="card">
+            <a href="{{ path 'poems' }}">
+            <img src="../../../images/writing.webp" alt="Image 1">
+            <h3>DISCOVER A WORLD FULL OF SURPRISES</h3>
+            </a>
+        </div>
+    </div>
+	
+	<div class="container">
+		
+        <div class="card">
+            <a href="{{ path 'register' }}">
+            <img src="../../../images/community.webp" alt="Image 1">
+            <h3>JOIN A SUPPORTING COMMUNITY</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="{{ path 'poems/new' }}">
+            <img src="../../../images/firstpoem.webp" alt="Image 2">
+            <h3>CREATE YOUR FIRST POEM</h3>
+            </a>
+        </div>
+
+        <div class="card" >
+            <a href="{{ path 'poems' }}">
+            <img src="../../../images/comments.webp" alt="Image 3">
+            <h3>REVIEW YOUR FAVORITE POEMS</h3>
+            </a>
+        </div>
+
+    </div>
+
+	<h1 class="container">More About Us</h1>
+
+	<div class="container">
+		
+		<a href="{{ path 'abhay' }}">
+        <div class="card" onclick="window.location.href='./Abhay.hbs'">
+            <img id="abhay" src="../../../images/abhay/image1.webp" alt="Image 1">
+            <h3>Abhay Patel</h3>
+            <p>
+            Abhay Patel was born in a small town in India to loving parents who always valued education and creativity.<br>
+            From a young age, Abhay showed a keen interest in technology, often tinkering with gadgets and exploring how they worked.<br>
+            His parents recognized his potential and supported his passion, providing him with access to books and a computer.<br>
+            As Abhay grew older, his fascination with technology deepened, and he decided to pursue a degree in computer science.<br>
+            He enrolled in a prestigious university, where he excelled in his studies.<br>
+            It was during this time that he discovered another passion—poetry.<br>
+            Abhay found solace in expressing his thoughts and emotions through words, and he often spent hours crafting beautiful verses.<br>
+            One day, while working on a complex coding project, Abhay had an epiphany.<br>
+            He realized that coding and poetry shared a common essence—both required creativity, precision, and a deep understanding of structure and flow.<br>
+            He began to see his code as a form of poetry, a way to express his ideas and emotions through the logic and elegance of programming languages.<br>
+            Abhay's unique perspective allowed him to create software that was not only functional but also artistically beautiful.<br>
+            His code was like a finely crafted poem, with each line and function meticulously designed to convey a specific meaning.<br>
+            He became known for his ability to blend technical expertise with poetic expression, creating programs that were both efficient and aesthetically pleasing.<br>
+            As Abhay's reputation grew, he started to share his work with the world.<br>
+            He wrote articles and gave talks about the intersection of coding and poetry, inspiring others to see the beauty in programming.<br>
+            He also published collections of his poems, gaining recognition as a talented poet.<br>
+            Today, Abhay Patel continues to pursue his dual passions, creating innovative software solutions while writing poetry that resonates with people around the world.<br>
+            He believes that coding and poetry are not so different after all—they are both ways to communicate, to solve problems, and to create something beautiful from nothing.<br>
+            Abhay's journey is a testament to the power of following one's passions and finding unique ways to blend them into a harmonious and fulfilling life.
+        </p>
+        </div>
+		</a>
+
+		<a href="{{ path 'rambert' }}">
+        <div class="card" onclick="window.location.href='./Abhay.hbs'">
+            <img id="rambert" src="../../../images/rambert/image1.webp" alt="Image 2">
+            <h3>Tsafack Fadia Nahor Rambert</h3>
+            <p>Pourquoi réciter un poème? Les avantages pourraient vous surprendre!</p>
+        </div>
+		</a>
+
+    </div>
+
+</div>
+
+<script>
+		let count = {value:0};
+        let abhayCount = {value:0};
+        let rambertCount = {value:0};
+		let arrayImageSource= ["../../../images/rotation/image1.png","../../../images/rotation/image2.png","../../../images/rotation/image3.png", "../../../images/rotation/image4.png"];
+        let abhay = ["../../../images/abhay/image1.webp","../../../images/abhay/image2.webp","../../../images/abhay/image3.webp"];
+        let rambert = ["../../../images/rambert/image1.webp","../../../images/rambert/image2.webp","../../../images/rambert/image3.webp"];
+		let image = document.getElementById("homeViewImages");
+        let abhayImage = document.getElementById("abhay");
+        let rambertImage = document.getElementById("rambert");
+		
+		function cycle() {
+                image.src = arrayImageSource[count];
+                abhayImage.src = abhay[abhayCount];
+                rambertImage.src = rambert[rambertCount]
+                count = (count === arrayImageSource.length - 1) ? 0 : count + 1;
+                abhayCount = (abhayCount === abhay.length - 1) ? 0 : abhayCount + 1;
+                rambertCount = (rambertCount === rambert.length - 1) ? 0 : rambertCount + 1;
+            }
+        function rotation(array, image, count) {
+            image.src = array[count.value]
+            count.value = (count.value === array.length - 1) ? 0 : count.value + 1;
+        }
+            
+        setInterval(() => rotation(arrayImageSource, image, count), 4000);
+        setInterval(() => rotation(abhay, abhayImage, abhayCount), 4000);
+        setInterval(() => rotation(rambert, rambertImage, rambertCount), 4888);
+        // setInterval(() => cycle(), 4000);
+	</script>
+
+{{> Footer }}

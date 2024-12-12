@@ -1,0 +1,214 @@
+body {
+    padding-top: 53px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navigation bar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(51,51,45, 0.8); /* Using RGBA for transparency */
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%; /* Ensure the navbar extends full width */
+    position: fixed; /* Keeps the navbar at the top of the viewport */
+    top: 0; /* Aligns the navbar at the top */
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-right: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-icons button:hover {
+    opacity: 0.7;
+}
+
+/* Cards */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 25px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+    cursor: pointer; 
+    transition: transform 0.2s;
+}
+
+.card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card h3 {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card p {
+    padding: 0 15px 15px;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 20px; /* Adjust based on the number of lines and line-height */
+}
+
+/* Poem Container */
+.cardPoem {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+    cursor: pointer; 
+    transition: transform 0.2s;
+}
+
+.cardPoem img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cardPoem h3 {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.cardPoem:hover {
+    transform: scale(1.05);
+}
+
+.cardPoem p {
+    padding: 0 15px 15px;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 100px; /* Adjust based on the number of lines and line-height */
+}
+
+body #showPoem {
+    padding-top: 80px;
+}
+#showPoem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#showPoem .cardPoem {
+    width: 75vh;
+    height: 75vh;
+}
+
+#showPoem .cardPoem p {
+    padding: 0 15px 15px;
+    font-size: 14px;
+    height: 100%;
+
+    text-wrap: balance;
+}
+
+#showPoem .cardPoem:hover {
+    transform: scale(1);
+}
+
+#showPoem .card {
+    text-align: left;
+    padding: 0px;
+    width: 165px;
+    height: 45px;
+}
+
+/* Login */
+
+.loginContainer {
+    display: flex;
+    
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .nav-icons {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}

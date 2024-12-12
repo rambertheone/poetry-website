@@ -1,0 +1,17 @@
+{{> Header }}
+
+<h1>Edit Poem</h1>
+
+<form action="{{path 'poems'}}/{{ poem.id }}" method="POST" id="edit-poem-form">
+	<input type="hidden" name="method" value="PUT">
+	<fieldset class="grid">
+		<label>
+			Title
+			<input type="text" name="title" placeholder="Enter new title" id="title" value="{{todo.title}}">
+		</label>
+	</fieldset>
+	<textarea name="description" placeholder="Enter Description" id="description">{{todo.description}}</textarea>
+	<input type="submit" value="Edit" id="edit-poem-form-submit-button">
+</form>
+
+{{> Footer }}

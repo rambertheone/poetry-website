@@ -1,0 +1,21 @@
+{{> Header }}
+
+<h1>Your Profile</h1>
+<p>Created Poems</p>
+{{#unless createdPoems}}
+	<p>No Poems created</p>
+{{else}}
+	<ul>
+		{{#each createdPoems}}
+				<a href="poems/{{ id }}">
+					<div poem-id="{{ id }}">
+						<h3>{{title}}</h3>
+						<p>{{description}}</p>
+					</div>
+				</a>
+		{{/each}}
+	</ul>
+{{/unless}}
+<p>Like Poems</p>
+
+{{> Footer}}

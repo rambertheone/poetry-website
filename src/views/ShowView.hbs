@@ -1,0 +1,71 @@
+{{> Header}}
+
+<div id="showPoem">
+	<div poem-id="{{ id }}" class="cardPoem">
+		<h3 id="title">{{title}}</h3>
+		<p id="description">{{poem.description}}</p>
+	</div>
+
+	<div poem-id="{{ id }}" class="card">
+		<p id="category"> <b>Category</b>: {{ category.name }}</p>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	{{#if modifyPoem}}
+	<a href="/poems/{{ poem.id }}/edit"><b>Edit Poem</b></a>
+	{{/if}}
+	<br>
+	<br>
+	<br>
+	<p><strong>Category</strong></p>
+	<p id="category">{{ category.name }}</p>
+	{{#if modifyPoem}}
+	<form id="delete-poem-form" method="POST" action="/poems/{{ poem.id }}">
+		<input type="hidden" name="method" value="DELETE">
+		<button type="submit">Delete</button>
+	</form>
+	{{/if}}
+	<br>
+{{#if showLike}}
+<form method="POST" action="/poems/{{ poem.id }}/likes">
+	<button type="submit">Like</button>
+</form>
+{{/if}}
+
+	<h1>Comments</h1>
+	{{#if isLoggedIn}}
+	<form id="new-comment-form" method="POST" action="/poems/{{ poem.id }}/comments">
+		<div>
+			<label for="title">Title</label>
+			<textarea id="title" name="title"></textarea>
+			<br>
+			<label for="description">Description</label>
+			<textarea id="description" name="description"></textarea>
+		</div>
+		<button id="new-poem-form-submit-button" type="submit">Comments</button>
+	</form>
+	<br>
+	{{/if}}
+	{{#unless comments}}
+		<p>No Comments posted</p>
+	{{else}}
+		<ul id="comments">
+			{{#each comments}}
+				<li comment-id="{{ id }}">
+					<p id="title-{{ id }}">{{ title }}</p>
+					<p id="description-{{ id }}">{{ description }}</p>
+				</li>
+				{{#if canModify}}
+				<a href="/poems/{{ ../poem.id }}/comments/{{ id }}/edit">Edit Comment</a>
+				<form method="POST" action="/poems/{{ ../poem.id }}/comments/{{ id }}">
+					<input type="hidden" name="method" value="DELETE">
+					<button id="delete-comments-form button-{{ id }}" type="submit">Delete Comment</button>
+				</form>
+				{{/if}}
+			{{/each}}
+		</ul>
+	{{/unless}}
+</div>
+{{> Footer}}
